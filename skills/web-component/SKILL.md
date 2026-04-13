@@ -23,3 +23,13 @@ Web components allow developers to create reusable, encapsulated HTML elements t
 - **Use `template` element for defining component structure.**
 - **Use `cloneNode(true)` for cloning template content.**
 - **Use `mode: 'open'` for shadow root to make it accessible from outside.**
+
+### Lifecycle & State Management → [lifecycle.md](./rules/lifecycle.md)
+
+- **Use `connectedCallback()` for initialization and setup.**
+- **Use `disconnectedCallback()` for cleanup and resource management.**
+- **Use `attributeChangedCallback()` for observing attribute changes.**
+- **Use `adoptedCallback()` for handling document adoption.**
+- **Use getters and setters for property synchronization.**
+- **Use `requestAnimationFrame()` for DOM updates in callbacks.**
+- **Debounce expensive operations to avoid performance issues.**
