@@ -124,6 +124,15 @@ class WebComponent extends HTMLElement {
 customElements.define('web-component', WebComponent);
 ```
 
+## Framework Integration
+
+Web components can be integrated with various frameworks:
+
+- **React**: Use `@lit/react` wrapper to use web components as React components
+- **Vue**: Use `vue-web-component-wrapper` to wrap web components
+- **Angular**: Use `@angular/elements` to convert components to web components
+- **Svelte**: Use `svelte-web-components` to create web components
+
 ## Detailed References
 
 - [Creation](./rules/creation.md) - Basic component structure and registration
