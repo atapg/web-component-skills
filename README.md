@@ -16,7 +16,6 @@ This skill provides guidance on:
 - Component architecture and design patterns
 - State management and data binding
 - Performance optimization techniques
-- Testing strategies for web components
 - Integration with modern frameworks
 
 ## Usage
