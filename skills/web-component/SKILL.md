@@ -1,6 +1,9 @@
 ---
 name: web-components
 description: Manage web components - create, style, and use custom HTML elements with shadow DOM and encapsulation. Triggered when user asks about creating custom elements, using shadow DOM, handling events, or integrating web components.
+license: MIT
+metadata:
+  author: atapg
 ---
 
 # Web Component Skills
@@ -67,7 +70,11 @@ Web components allow developers to create reusable, encapsulated HTML elements t
 
 ## Key Patterns
 
+### Basic Component Structure
+
 Basic component structure for scalable web components (Use this approach for all web components if user asks for clean, maintainable code or doesn't specify a particular approach)
+
+**Note:** Install `jenkey2011.string-highlight` or relevant extension for syntax highlighting in the template.
 
 ```typescript
 const template = `
