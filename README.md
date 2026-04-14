@@ -1,4 +1,4 @@
-# Web Component Agent Skill
+# Web Components Agent Skill
 
 Agent skill for web component development — a comprehensive guide for building scalable, maintainable, and performant web components.
 
