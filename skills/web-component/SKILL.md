@@ -33,3 +33,16 @@ Web components allow developers to create reusable, encapsulated HTML elements t
 - **Use getters and setters for property synchronization.**
 - **Use `requestAnimationFrame()` for DOM updates in callbacks.**
 - **Debounce expensive operations to avoid performance issues.**
+
+### Events & Communication → [events.md](./rules/events.md)
+
+- **Use `dispatchEvent()` for dispatching custom events.**
+- **Use `addEventListener()` for listening to events.**
+- **Always use `removeEventListener()` for removing event listeners on disconnect.**
+- **Use `CustomEvent` for creating custom events with data.**
+- **Use `detail` property for passing event data.**
+- **Set `bubbles: true` for bubbling events up the DOM tree.**
+- **Set `composed: true` for crossing shadow DOM boundaries.**
+- **Use `preventDefault()` for preventing default browser behavior.**
+- **Use `stopPropagation()` for stopping event propagation.**
+- **Use `stopImmediatePropagation()` for stopping other listeners on the same element.**
