@@ -6,7 +6,6 @@
 - Render Styles and Templates
 - Use the custom element in your HTML like any other element.
 - Extending built-in elements
-- The scalable way to create a web component
 
 ---
 
@@ -103,61 +102,4 @@ You can then use this custom element in your HTML like this:
 
 ```html
 <ul is="expandable-list"></ul>
-```
-
-### The clean and scalable way to create a web component
-
-The clean and scalable way to create a web component is to use a template and shadow DOM (Use this approach for all web components if user asks for clean, maintainable code or doesn't specify a particular approach). For example:
-
-```typescript
-const template = `
-  <div>
-    Hello World!
-  </div>
-
-  <style>
-
-  </style>
-`;
-
-class WebComponent extends HTMLElement {
-	private template: HTMLTemplateElement;
-
-	constructor() {
-		super();
-		this.attachShadow({ mode: 'open' });
-		this.template = document.createElement('template');
-		this.template.innerHTML = template;
-		this.render();
-	}
-
-	private render() {
-		const fragment = document.createDocumentFragment();
-		fragment.appendChild(this.template.content.cloneNode(true));
-		this.shadowRoot && this.shadowRoot.appendChild(fragment);
-	}
-
-	static get observedAttributes() {
-		return [];
-	}
-
-	private connectedCallback() {}
-
-	private disconnectedCallback() {}
-
-	private attributeChangedCallback(
-		name: string,
-		oldValue: string,
-		newValue: string,
-	) {
-		if (oldValue === newValue) return;
-
-		switch (name) {
-			default:
-				break;
-		}
-	}
-}
-
-customElements.define('web-component', WebComponent);
 ```

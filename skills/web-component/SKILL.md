@@ -19,10 +19,10 @@ Web components allow developers to create reusable, encapsulated HTML elements t
 ### Creation & Basics → [creation.md](./rules/creation.md)
 
 - **Use `customElements.define()` for registering custom elements.**
-- **Use `attachShadow()` for creating shadow DOM.**
-- **Use `template` element for defining component structure.**
-- **Use `cloneNode(true)` for cloning template content.**
-- **Use `mode: 'open'` for shadow root to make it accessible from outside.**
+- **Invoke `attachShadow()` for creating shadow DOM.**
+- **Create `template` element for defining component structure.**
+- **Set `cloneNode(true)` for cloning template content.**
+- **Set `mode: 'open'` for shadow root to make it accessible from outside.**
 
 ### Lifecycle & State Management → [lifecycle.md](./rules/lifecycle.md)
 
@@ -30,8 +30,8 @@ Web components allow developers to create reusable, encapsulated HTML elements t
 - **Use `disconnectedCallback()` for cleanup and resource management.**
 - **Use `attributeChangedCallback()` for observing attribute changes.**
 - **Use `adoptedCallback()` for handling document adoption.**
-- **Use getters and setters for property synchronization.**
-- **Use `requestAnimationFrame()` for DOM updates in callbacks.**
+- **Create getters and setters for property synchronization.**
+- **Set `requestAnimationFrame()` for DOM updates in callbacks.**
 - **Debounce expensive operations to avoid performance issues.**
 
 ### Events & Communication → [events.md](./rules/events.md)
@@ -64,3 +64,70 @@ Web components allow developers to create reusable, encapsulated HTML elements t
 - **Set `loading="eager"` for eager loading web components.**
 - **Set `loading="auto"` for automatic loading web components.**
 - **Use document fragments for batch updates.**
+
+## Key Patterns
+
+Basic component structure for scalable web components (Use this approach for all web components if user asks for clean, maintainable code or doesn't specify a particular approach)
+
+```typescript
+const template = `
+  <div>
+    Hello World!
+  </div>
+
+  <style>
+
+  </style>
+`;
+
+class WebComponent extends HTMLElement {
+	private template: HTMLTemplateElement;
+
+	constructor() {
+		super();
+		this.attachShadow({ mode: 'open' });
+		this.template = document.createElement('template');
+		this.template.innerHTML = template;
+		this.render();
+	}
+
+	private render() {
+		const fragment = document.createDocumentFragment();
+		fragment.appendChild(this.template.content.cloneNode(true));
+		this.shadowRoot && this.shadowRoot.appendChild(fragment);
+	}
+
+	static get observedAttributes() {
+		return [
+			/** attribute names */
+		];
+	}
+
+	private connectedCallback() {}
+
+	private disconnectedCallback() {}
+
+	private attributeChangedCallback(
+		name: string,
+		oldValue: string,
+		newValue: string,
+	) {
+		if (oldValue === newValue) return;
+
+		switch (name) {
+			default:
+				break;
+		}
+	}
+}
+
+customElements.define('web-component', WebComponent);
+```
+
+## Detailed References
+
+- [Creation](./rules/creation.md) - Basic component structure and registration
+- [Lifecycle & State Management](./rules/lifecycle.md) - Component lifecycle methods and state management
+- [Events & Communication](./rules/events.md) - Event handling and communication patterns
+- [Slots and content projection](./rules/slots.md) - Content projection and slot management
+- [Performance optimization](./rules/performance.md) - Performance optimization techniques
