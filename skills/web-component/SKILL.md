@@ -55,3 +55,12 @@ Web components allow developers to create reusable, encapsulated HTML elements t
 - **Use `assignedElements()` for accessing projected content.**
 - **Use `assignedNodes()` for accessing projected nodes.**
 - **Use `slotchange` event for detecting slot changes.**
+
+### Performance optimization → [performance.md](./rules/performance.md)
+
+- **Use `requestAnimationFrame()` for DOM updates in callbacks.**
+- **Debounce expensive operations to avoid performance issues.**
+- **Set `loading="lazy"` for lazy loading web components.**
+- **Set `loading="eager"` for eager loading web components.**
+- **Set `loading="auto"` for automatic loading web components.**
+- **Use document fragments for batch updates.**
