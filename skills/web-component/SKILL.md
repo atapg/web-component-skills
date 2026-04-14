@@ -46,3 +46,12 @@ Web components allow developers to create reusable, encapsulated HTML elements t
 - **Use `preventDefault()` for preventing default browser behavior.**
 - **Use `stopPropagation()` for stopping event propagation.**
 - **Use `stopImmediatePropagation()` for stopping other listeners on the same element.**
+
+### Slots and content projection → [slots.md](./rules/slots.md)
+
+- **Use `<slot>` element for content projection.**
+- **Add `name` attribute for named slots.**
+- **Add `default` slot for fallback content.**
+- **Use `assignedElements()` for accessing projected content.**
+- **Use `assignedNodes()` for accessing projected nodes.**
+- **Use `slotchange` event for detecting slot changes.**
